@@ -1,0 +1,1 @@
+mvn deploy:deploy-file -Dfile=external-libs/ivy-1.2.13.jar -DpomFile=external-libs/ivy.pom.xml -DrepositoryId=ftp-repository-irit-vnoel -Durl=ftp://ftpintra.irit.fr/../../usr/local/WWW/PERSONNEL/SMAC/noel/maven-repos/
