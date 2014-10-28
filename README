@@ -1,1 +1,21 @@
-mvn deploy:deploy-file -Dfile=external-libs/ivy-1.2.13.jar -DpomFile=external-libs/ivy.pom.xml -DrepositoryId=ftp-repository-irit-vnoel -Durl=ftp://ftpintra.irit.fr/../../usr/local/WWW/PERSONNEL/SMAC/noel/maven-repos/
+A. Old way of deploying to our own repository:
+$ mvn deploy:deploy-file -Dfile=external-libs/ivy-1.2.13.jar -DpomFile=external-libs/ivy.pom.xml -DrepositoryId=ftp-repository-irit-vnoel -Durl=ftp://ftpintra.irit.fr/../../usr/local/WWW/PERSONNEL/SMAC/noel/maven-repos/
+
+B. To deploy to Central, it is needed to build a bundle and manually deploy it as explained here: https://github.com/sevntu-checkstyle/dsm-maven-plugin/wiki/Uploading-3rd-party-library-to-maven-central
+
+We need these files:
+project-1.0.pom
+project-1.0.jar
+project-1.0-sources.jar
+project-1.0-javadoc.jar
+
+If needed, create the sources and javadoc archive manually with a README in it explaining why there is nothing:
+$ jar -cvf project-1.0-sources.jar README 
+
+Then sign (see https://wwwsecu.irit.fr/redmine/projects/may/wiki/MAY_Plugin_Release_Process for details):
+$ gpg -ab filename
+
+Then create bundle:
+$ jar -cvf project-1.0-bundle.jar project-1.0.pom project-1.0.pom.asc project-1.0.jar project-1.0.jar.asc project-1.0-javadoc.jar project-1.0-javadoc.jar.asc project-1.0-sources.jar project-1.0-sources.jar.asc
+
+And upload on maven central (click on Staging Upload).

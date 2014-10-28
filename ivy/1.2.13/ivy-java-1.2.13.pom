@@ -1,0 +1,53 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>fr.irit.smac.thirdparty.ivy</groupId>
+	<artifactId>ivy-java</artifactId>
+	<version>1.2.13</version>
+	<packaging>jar</packaging>
+
+	<name>${project.groupId}:${project.artifactId}</name>
+	<url>http://www.eei.cena.fr/products/ivy/</url>
+	<description>Ivy is the software bus that will creep over your network!</description>
+
+	<dependencies>
+		<dependency>
+			<groupId>jakarta-regexp</groupId>
+			<artifactId>jakarta-regexp</artifactId>
+			<version>1.4</version>
+			<type>jar</type>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>gnu.getopt</groupId>
+			<artifactId>java-getopt</artifactId>
+			<version>1.0.13</version>
+			<type>jar</type>
+			<scope>runtime</scope>
+		</dependency>
+	</dependencies>
+
+	<licenses>
+		<license>
+			<name>GNU Lesser General Public License v2.1</name>
+			<url>http://www.gnu.org/licenses/lgpl-2.1.txt</url>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<name>Yannick Jestin</name>
+			<email></email>
+			<organization>EEI/DTI</organization>
+			<organizationUrl>http://www.eei.cena.fr/</organizationUrl>
+		</developer>
+	</developers>
+
+	<scm>
+		<connection>scm:svn:http://svn.tls.cena.fr/wsvn/ivy/ivy-java/trunk/</connection>
+		<developerConnection>scm:svn:http://svn.tls.cena.fr/wsvn/ivy/ivy-java/trunk/</developerConnection>
+		<url>http://svn.tls.cena.fr/wsvn/ivy/ivy-java/trunk/</url>
+	</scm>
+
+</project>
