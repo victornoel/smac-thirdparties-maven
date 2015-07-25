@@ -1,3 +1,23 @@
+1) MASON and RLFORJ
+
+We first need to get the source code corresponding to the version of the pom.
+
+For Mason, from its parent directory:
+$ svn co http://mason.googlecode.com/svn/trunk/mason mason 
+
+If you want a specific revision, for version 18 (rev 1001) for example, go in the mason directory and do:
+$ svn update -r 1001
+
+For rlforj, from its parent directory (16 is the revision of the release 0.3):
+$ svn co svn://svn.code.sf.net/p/rlforj/code/trunk rlforj
+
+If you want a specific revision, for version 0.3 (rev 16) for example, go in the rlforj directory and do:
+$ svn update -r 16
+
+Then follow a normal release as explained here: https://wwwsecu.irit.fr/redmine/projects/may/wiki/MAY_Lib_Release_Process
+
+2) IVY
+
 A. Old way of deploying to our own repository:
 $ mvn deploy:deploy-file -Dfile=external-libs/ivy-1.2.13.jar -DpomFile=external-libs/ivy.pom.xml -DrepositoryId=ftp-repository-irit-vnoel -Durl=ftp://ftpintra.irit.fr/../../usr/local/WWW/PERSONNEL/SMAC/noel/maven-repos/
 
@@ -12,10 +32,10 @@ project-1.0-javadoc.jar
 If needed, create the sources and javadoc archive manually with a README in it explaining why there is nothing:
 $ jar -cvf project-1.0-sources.jar README 
 
-Then sign (see https://wwwsecu.irit.fr/redmine/projects/may/wiki/MAY_Plugin_Release_Process for details):
+Then sign (see https://wwwsecu.irit.fr/redmine/projects/may/wiki/MAY_Lib_Release_Process for details):
 $ gpg -ab filename
 
 Then create bundle:
 $ jar -cvf project-1.0-bundle.jar project-1.0.pom project-1.0.pom.asc project-1.0.jar project-1.0.jar.asc project-1.0-javadoc.jar project-1.0-javadoc.jar.asc project-1.0-sources.jar project-1.0-sources.jar.asc
 
-And upload on maven central (click on Staging Upload).
+And upload on maven central (click on Staging Upload the Nexus, see https://wwwsecu.irit.fr/redmine/projects/may/wiki/MAY_Lib_Release_Process for access).
